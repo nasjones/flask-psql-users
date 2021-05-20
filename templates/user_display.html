@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+<!-- Title block -->
+{%block title%}
+<title>{{user.first_name}}'s Display</title>
+{%endblock%}
+<!-- Link block -->
+{%block links%}
+<link rel="stylesheet" href="/static/user-display.css" />
+{%endblock%}
+<!-- Content block -->
+{%block content%}
+<div id="body-wrap">
+	<img src="{{user.image_url}}" alt="user's Image" />
+	<div id="info-wrap">
+		<h1>{{user.first_name}} {{user.last_name}}</h1>
+		<a href="/users/{{user.id}}/edit">
+			<button id="edit-button" class="info-button">Edit</button>
+		</a>
+		<form action="/users/{{user.id}}/delete" method="POST" id="delete-form">
+			<button id="del-button" class="info-button" type="submit">
+				Delete
+			</button>
+		</form>
+	</div>
+</div>
+{%endblock%}

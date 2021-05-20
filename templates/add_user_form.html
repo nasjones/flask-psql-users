@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+<!-- Title block-->
+{%block title%}
+<title>Add User Form</title>
+{%endblock%}
+<!-- Link block -->
+{%block links%}
+<link rel="stylesheet" href="/static/user-form.css" />
+{%endblock%}
+<!-- Content block -->
+{%block content%}
+<h1>Add User</h1>
+<form action="/users/new" id="user-form" method="POST">
+	<label for="first-name-input">First Name:</label>
+	<input
+		type="text"
+		id="first-name-input"
+		name="first-name-input"
+		placeholder="Enter a first name"
+		required
+	/>
+
+	<label for="last-name-input">Last Name:</label>
+	<input
+		type="text"
+		id="last-name-input"
+		name="last-name-input"
+		placeholder="Enter a last name"
+		required
+	/>
+
+	<label for="url-input">Photo URL:</label>
+	<input
+		type="url"
+		id="url-input"
+		name="url-input"
+		placeholder="Provide an image of this user"
+	/>
+
+	<button type="submit">Add</button>
+</form>
+{%endblock%}
