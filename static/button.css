@@ -1,0 +1,26 @@
+.info-button {
+	border-radius: 5px;
+	height: 3vh;
+	border: none;
+}
+
+.info-button:hover {
+	cursor: pointer;
+}
+
+.blue-button {
+	background-color: deepskyblue;
+}
+
+.red-button {
+	background-color: crimson;
+}
+
+.button-link {
+	text-decoration: none;
+}
+
+#return {
+	border: 2px solid deepskyblue;
+	background-color: transparent;
+}

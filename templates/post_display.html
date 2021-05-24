@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+<!-- Title block -->
+{%block title%}
+<title>{{post.title}}</title>
+{%endblock%}
+<!-- Link block -->
+{%block links%}
+<link rel="stylesheet" href="/static/button.css" />
+<link rel="stylesheet" href="/static/post-display.css" />
+{%endblock%}
+<!-- Content block -->
+{%block content%}
+<h1>{{post.title}}</h1>
+<p>{{post.content}}</p>
+<span class="author-display">By {{user.full_name}}</span>
+<div class="post-button-wrap">
+	<a href="/users/{{user.id}}" class="button-link">
+		<button class="info-button" id="return">Return to author</button>
+	</a>
+	<a href="/posts/{{post.id}}/edit" class="button-link">
+		<button class="info-button blue-button">Edit</button>
+	</a>
+	<form action="/posts/{{post.id}}/delete" method="post">
+		<button type="submit" class="info-button red-button">Delete</button>
+	</form>
+</div>
+{%endblock%}

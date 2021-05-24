@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+<!-- Title block-->
+{%block title%}
+<title>Add Post Form</title>
+{%endblock%}
+<!-- Link block -->
+{%block links%}
+<link rel="stylesheet" href="/static/user-form.css" />
+<link rel="stylesheet" href="/static/button.css" />
+{%endblock%}
+<!-- Content block -->
+{%block content%}
+<h1>Add Post for {{user.full_name}}</h1>
+<form action="/users/{{user.id}}/posts/new" id="user-form" method="POST">
+	<label for="title-input">Title</label>
+	<input type="text" id="title-input" name="title-input" required />
+	<label for="content-input">Content:</label>
+	<textarea
+		name="content-input"
+		id="content-input"
+		cols="30"
+		rows="10"
+		required
+	></textarea>
+	<div>
+		<button type="submit" class="info-button blue-button">Add Post</button>
+		<a href="/users/{{user.id}}" class="button-link">
+			<button type="button" class="info-button red-button">Cancel</button>
+		</a>
+	</div>
+</form>
+{%endblock%}

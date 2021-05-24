@@ -1,0 +1,12 @@
+.author-display {
+	font-style: italic;
+}
+
+.post-button-wrap {
+	margin-top: 20px;
+	display: flex;
+}
+
+.post-button-wrap > * {
+	margin-right: 5px;
+}

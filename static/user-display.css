@@ -10,28 +10,6 @@ img {
 	margin-left: 10px;
 }
 
-#edit-button {
-	background-color: deepskyblue;
-}
-
-#del-button {
-	background-color: crimson;
-}
-
-.info-button {
-	border-radius: 5px;
-	height: 3vh;
-	border: none;
-}
-
-.info-button:hover {
-	cursor: pointer;
-}
-
 #delete-form {
 	display: inline;
-}
-
-a {
-	text-decoration: none;
 }

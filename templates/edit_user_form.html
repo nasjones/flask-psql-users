@@ -6,6 +6,7 @@
 <!-- Link block -->
 {%block links%}
 <link rel="stylesheet" href="/static/user-form.css" />
+<link rel="stylesheet" href="/static/button.css" />
 {%endblock%}
 <!-- Content block -->
 {%block content%}
@@ -36,8 +37,12 @@
 		value="{{user.image_url}}"
 	/>
 	<div>
-		<a href="/users/{{user.id}}"><button>Cancel</button></a>
-		<button type="submit">Save Changes</button>
+		<a href="/users/{{user.id}}" class="button-link">
+			<button type="button" class="info-button red-button">Cancel</button>
+		</a>
+		<button type="submit" class="info-button blue-button">
+			Save Changes
+		</button>
 	</div>
 </form>
 {%endblock%}

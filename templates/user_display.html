@@ -5,6 +5,7 @@
 {%endblock%}
 <!-- Link block -->
 {%block links%}
+<link rel="stylesheet" href="/static/button.css" />
 <link rel="stylesheet" href="/static/user-display.css" />
 {%endblock%}
 <!-- Content block -->
@@ -12,15 +13,28 @@
 <div id="body-wrap">
 	<img src="{{user.image_url}}" alt="user's Image" />
 	<div id="info-wrap">
-		<h1>{{user.first_name}} {{user.last_name}}</h1>
-		<a href="/users/{{user.id}}/edit">
-			<button id="edit-button" class="info-button">Edit</button>
+		<h1>{{user.full_name}}</h1>
+		<a href="/users/{{user.id}}/edit" class="button-link">
+			<button class="info-button blue-button">Edit</button>
 		</a>
 		<form action="/users/{{user.id}}/delete" method="POST" id="delete-form">
-			<button id="del-button" class="info-button" type="submit">
-				Delete
-			</button>
+			<button class="info-button red-button" type="submit">Delete</button>
 		</form>
+		<h2>Posts</h2>
+		<ul>
+			{% if user.Posts%}
+			<!-- for loop -->
+			{%for post in user.Posts%}
+			<li>
+				<a href="/posts/{{post.id}}">{{post.title}}</a>
+			</li>
+			{%endfor%}
+			<!-- endfor -->
+			{%endif%}
+		</ul>
+		<a href="/users/{{user.id}}/posts/new" class="button-link">
+			<button class="info-button blue-button">Add Post</button>
+		</a>
 	</div>
 </div>
 {%endblock%}
