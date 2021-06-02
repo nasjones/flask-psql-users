@@ -22,9 +22,9 @@
 		</form>
 		<h2>Posts</h2>
 		<ul>
-			{% if user.Posts%}
+			{% if user.posts%}
 			<!-- for loop -->
-			{%for post in user.Posts%}
+			{%for post in user.posts%}
 			<li>
 				<a href="/posts/{{post.id}}">{{post.title}}</a>
 			</li>

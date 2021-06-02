@@ -10,3 +10,10 @@
 .post-button-wrap > * {
 	margin-right: 5px;
 }
+
+.post-tag {
+	font-weight: bold;
+	font-style: italic;
+	border: 2px solid salmon;
+	border-radius: 5px;
+}

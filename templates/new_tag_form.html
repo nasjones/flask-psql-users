@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+<!-- Title block-->
+{%block title%}
+<title>Add Tag Form</title>
+{%endblock%}
+<!-- Link block -->
+{%block links%}
+<link rel="stylesheet" href="/static/user-form.css" />
+<link rel="stylesheet" href="/static/button.css" />
+{%endblock%}
+<!-- Content block -->
+{%block content%}
+<h1>Create a Tag</h1>
+{%for category, message in get_flashed_messages(with_categories=true)%}
+<div class="message {{category}}">
+	<span>{{message}}</span>
+</div>
+{%endfor%}
+<form action="/tags/new" id="user-form" method="POST">
+	<label for="name-input">Name:</label>
+	<input
+		type="text"
+		id="name-input"
+		name="name-input"
+		placeholder="Enter a name for the tag"
+		required
+	/>
+
+	<div>
+		<button type="submit" class="info-button blue-button">Add</button>
+		<a href="/tags" class="button-link">
+			<button type="button" class="info-button red-button">
+				Back to tag list
+			</button>
+		</a>
+	</div>
+</form>
+{%endblock%}

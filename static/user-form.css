@@ -11,3 +11,23 @@
 #user-form > textarea {
 	margin-bottom: 20px;
 }
+
+.tag-check:hover {
+	cursor: pointer;
+}
+
+.message {
+	border-radius: 3px;
+	color: white;
+	width: fit-content;
+	height: fit-content;
+	padding: 2px;
+}
+
+.error {
+	background-color: red;
+}
+
+.success {
+	background-color: green;
+}

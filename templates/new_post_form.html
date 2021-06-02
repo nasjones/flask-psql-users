@@ -22,6 +22,19 @@
 		rows="10"
 		required
 	></textarea>
+
+	{%for tag in tags%}
+	<div>
+		<input
+			type="checkbox"
+			name="tag"
+			id="{{tag.name}}"
+			class="tag-check"
+			value="{{tag.id}}"
+		/>
+		<label for="{{tag.name}}" class="tag-check">{{tag.name}}</label>
+	</div>
+	{%endfor%}
 	<div>
 		<button type="submit" class="info-button blue-button">Add Post</button>
 		<a href="/users/{{user.id}}" class="button-link">

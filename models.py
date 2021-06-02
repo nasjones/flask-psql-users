@@ -23,6 +23,8 @@ class User(db.Model):
     last_name = db.Column(db.String(), nullable=False)
     image_url = db.Column(db.String(), nullable=True, default=Default_img_url)
 
+    posts = db.relationship('Posts', backref='User')
+
     def __repr__(self):
         return f"User id={self.id} full name ={self.first_name} {self.last_name} image_url={self.image_url}"
 
@@ -43,7 +45,29 @@ class Posts(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.datetime.now())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    users = db.relationship('User', backref='Posts')
+    tags = db.relationship('Tags', secondary='post_tag', backref='Posts')
 
     def __repr__(self):
         return f'id={self.id} title={self.title} created={self.created_at} user={self.user_id}'
+
+
+class Tags(db.Model):
+    """Tags model"""
+
+    __tablename__ = "tags"
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String, unique=True, nullable=False)
+
+    def __repr__(self):
+        return f'id = {self.id}  name = {self.name}'
+
+
+class PostTag(db.Model):
+    """union database for posts and tags"""
+    __tablename__ = 'post_tag'
+
+    post_id = db.Column(db.Integer, db.ForeignKey(
+        'posts.id'), primary_key=True)
+    tag_id = db.Column(db.Integer, db.ForeignKey(
+        'tags.id'), primary_key=True)

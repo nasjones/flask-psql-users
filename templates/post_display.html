@@ -13,9 +13,16 @@
 <h1>{{post.title}}</h1>
 <p>{{post.content}}</p>
 <span class="author-display">By {{user.full_name}}</span>
+<div>
+	Tags: {%for tag in post.tags%}
+	<a href="/tags/{{tag.id}}" class="button-link">
+		<span class="post-tag">{{tag.name}}</span>
+	</a>
+	{%endfor%}
+</div>
 <div class="post-button-wrap">
 	<a href="/users/{{user.id}}" class="button-link">
-		<button class="info-button" id="return">Return to author</button>
+		<button class="info-button black" id="return">Return to author</button>
 	</a>
 	<a href="/posts/{{post.id}}/edit" class="button-link">
 		<button class="info-button blue-button">Edit</button>
